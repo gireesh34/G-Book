@@ -2,14 +2,15 @@ import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
 
 const pictures = [
-  "1",
   "3",
-  "4",
-  "5",
-  "6",
   "7",
+  "5",
+  "4",
+  "Design 3",
+  "6",
   "8",
   "9",
+
 
 
 ];
@@ -17,7 +18,7 @@ const pictures = [
 export const pageAtom = atom(0);
 export const pages = [
   {
-    front: "Design 1",
+    front: "1",
     back: pictures[0],
   },
 ];
@@ -30,7 +31,7 @@ for (let i = 1; i < pictures.length - 1; i += 2) {
 
 pages.push({
   front: pictures[pictures.length - 1],
-  back: "Design 2",
+  back: "Design 3",
 });
 
 export const UI = () => {

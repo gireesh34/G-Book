@@ -20,10 +20,10 @@ import { degToRad } from "three/src/math/MathUtils.js";
 import { pageAtom, pages } from "./UI";
 
 const easingFactor = 0.5; // Controls the speed of the easing
-const easingFactorFold = 0.3; // Controls the speed of the easing
+const easingFactorFold = 0.1; // Controls the speed of the easing
 const insideCurveStrength = 0.18; // Controls the strength of the curve
-const outsideCurveStrength = 0.05; // Controls the strength of the curve
-const turningCurveStrength = 0.09; // Controls the strength of the curve
+const outsideCurveStrength = 0.03; // Controls the strength of the curve
+const turningCurveStrength = 0.01; // Controls the strength of the curve
 
 const PAGE_WIDTH = 1.28;
 const PAGE_HEIGHT = 1.71; // 4:3 aspect ratio
@@ -68,7 +68,7 @@ pageGeometry.setAttribute(
 );
 
 const whiteColor = new Color("white");
-const emissiveColor = new Color("orange");
+const emissiveColor = new Color("blue");
 
 const pageMaterials = [
   new MeshStandardMaterial({
@@ -121,23 +121,21 @@ const Page = ({ number, front, back, page, opened, bookClosed, ...props }) => {
     const materials = [
       ...pageMaterials,
       new MeshStandardMaterial({
-        color: whiteColor,
         map: picture,
-        roughness: 0.1,
+        roughness: 0,
         emissive: emissiveColor,
         emissiveIntensity: 0,
       }),
       new MeshStandardMaterial({
-        color: whiteColor,
         map: picture2,
-        roughness: 0.1,
+        roughness: 0,
         emissive: emissiveColor,
         emissiveIntensity: 0,
       }),
     ];
     const mesh = new SkinnedMesh(pageGeometry, materials);
     mesh.castShadow = true;
-    mesh.receiveShadow = true;
+    mesh.receiveShadow = false;
     mesh.frustumCulled = false;
     mesh.add(skeleton.bones[0]);
     mesh.bind(skeleton);
@@ -151,7 +149,7 @@ const Page = ({ number, front, back, page, opened, bookClosed, ...props }) => {
       return;
     }
 
-    const emissiveIntensity = highlighted ? 0.22 : 0;
+    const emissiveIntensity = highlighted ? 0.12 : 0;
     skinnedMeshRef.current.material[4].emissiveIntensity =
       skinnedMeshRef.current.material[5].emissiveIntensity = MathUtils.lerp(
         skinnedMeshRef.current.material[4].emissiveIntensity,
