@@ -2,12 +2,14 @@ import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
 
 const pictures = [
-  "pic1",
-  "pic2",
-  "pic3",
-  "pic4",
-  "pic5",
-  "pic6",
+  "1",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
 
 
 ];
@@ -15,7 +17,7 @@ const pictures = [
 export const pageAtom = atom(0);
 export const pages = [
   {
-    front: "book-cover",
+    front: "Design 1",
     back: pictures[0],
   },
 ];
@@ -28,7 +30,7 @@ for (let i = 1; i < pictures.length - 1; i += 2) {
 
 pages.push({
   front: pictures[pictures.length - 1],
-  back: "book-back",
+  back: "Design 2",
 });
 
 export const UI = () => {
@@ -45,7 +47,7 @@ export const UI = () => {
         <a
           className="pointer-events-auto mt-10 ml-10"
         >
-          <img className="w-20" src="/logo.png" />
+          <img src="/AV8R logo.webp" />
         </a>
         <div className="w-full overflow-auto pointer-events-auto flex justify-center">
           <div className="overflow-auto flex items-center gap-4 max-w-full p-10">
@@ -79,8 +81,8 @@ export const UI = () => {
       <div className="fixed inset-0 flex items-center -rotate-2 select-none hidden">
         <div className="relative">
           <div className="bg-white/0  animate-horizontal-scroll flex items-center gap-8 w-max px-3">
-            <h1 className="shrink-0 text-white text-10xl font-black ">
-              Gireesh Book Slider
+            <h1 className="shrink-0 text-white text-7xl font-black ">
+             Atom8ic Catalog
             </h1>
           </div>
         </div>

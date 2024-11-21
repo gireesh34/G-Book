@@ -86,14 +86,14 @@ const pageMaterials = [
 ];
 
 pages.forEach((page) => {
-  useTexture.preload(`/textures/${page.front}.jpg`);
-  useTexture.preload(`/textures/${page.back}.jpg`);
+  useTexture.preload(`/textures/${page.front}.png`);
+  useTexture.preload(`/textures/${page.back}.png`);
 });
 
 const Page = ({ number, front, back, page, opened, bookClosed, ...props }) => {
   const [picture, picture2] = useTexture([
-    `/textures/${front}.jpg`,
-    `/textures/${back}.jpg`,
+    `/textures/${front}.png`,
+    `/textures/${back}.png`,
   ]);
   picture.colorSpace = picture2.colorSpace = SRGBColorSpace;
   const group = useRef();
